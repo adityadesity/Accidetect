@@ -1,0 +1,319 @@
+body{
+    padding: 0;
+    margin: 0;
+    /* background-color: #E8F9FD; */
+}
+
+.navbar-main {
+    background-color: #13005A;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.name {
+    margin: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #EE4266;
+}
+
+.container-service-main{
+    margin: 6% 5% 8%;
+}
+
+.drop-area {
+    width: 90%;
+    height: 150px;
+    border: 2px dashed #ccc;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.nav-item,.nav-link{
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.nav-link:hover{
+    color: #fff;
+}
+
+.active{
+    background-color: red;
+}
+
+.navbar-toggler-icon{
+    background-color: #fff;
+    border: 5px solid #03C988;
+    border-radius: 5px;
+}
+
+#file-upload-form{
+   margin-top: 50px;
+   text-align: center;
+}
+
+a{
+    text-decoration: none;
+}
+
+.accidetect-message{
+    margin: 20px;
+    color: #00337C;
+}
+
+.upload-btn{
+    background-color: #DF2E38;
+    margin: 10px;
+    margin-bottom: 50px;
+    height: 60px;
+    width: 150px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #fff;
+    font-family: sans-serif;
+    border: none;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+input{
+    background-color: #E8F9FD;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card{
+    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .rotate-anticlockwise {
+      transform: rotate(-15deg); /* Rotate the card 15 degrees anticlockwise */
+    }
+  }
+
+.container-demo-video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-video{
+    border: 5px solid #6895D2;
+    border-radius: 10px;
+}
+
+
+
+.working-cards-main-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 0;
+}
+
+.card-img-top{
+    margin-top: 15px;
+    height: 10rem;
+    width: 10rem;
+}
+
+.card-div{
+    margin-bottom: 30px;
+    margin-top: 30px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* margin: 2%; */
+}
+
+.Indusrtries-main-container{
+    margin:5%;
+   display: flex;
+   justify-content: center;
+}
+
+.Industries-inner-container{
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.insurance-img{
+   width: 200px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.accordion{
+    margin: 2% 7%;
+    text-align: center;
+
+}
+.accordion-item {
+   margin: 0.5% 15%;
+}
+
+
+.footer-bottom{
+    margin: 0;
+    color: #fff;
+  }
+  
+  .footer{
+    margin: 0;
+    background-color: #181D31;
+    color: #fff;
+    padding-top: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+
+
+  /* About Page CSS */
+
+  .about-accidetect-heading{
+    background-color: #EEEEEE;
+    margin-top: 20px;
+    display: inline-block;
+    padding: 15px;
+    margin-left: 1% ;
+    border: 1px solid #F5DD61;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #EE4266;
+  }
+
+  .container-about{
+    padding: 20px;
+    background-color: #E8F9FD;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 2% 5%;
+    border-radius: 10px;
+  }
+
+
+  /* Team Page CSS */
+
+  .container-team-main{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px;
+  }
+
+  .team-image-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .team-image{
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    border-radius: 100%;
+    box-shadow: rgb(85, 91, 255) 0px 0px 0px 3px, rgb(255, 85, 85) 0px 0px 0px 10px;
+  }
+
+  .team-member-name{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #00337C;
+  }
+
+
+  .dashed {
+    --b: 5px;  /* border thickness */
+    --s: 30px; /* size of the dashes */
+    --c1: #215A6D;
+    --c2: #92C7A3;
+    
+    width: 250px;
+    aspect-ratio: 1;
+    position: relative;
+  }
+  .dashed::before {
+    content:"";
+    position: absolute;
+    inset: 0;
+    padding: var(--b);
+    background: 
+      repeating-conic-gradient(var(--c1) 0 25%,var(--c2) 0 50%) 
+      0 0/var(--s) var(--s) round;
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    pointer-events: none;
+  }
+  
+  
+  .dashed{
+    padding-top: 10px;
+   text-align: center;
+   margin-bottom: 20px;
+   padding: 5px;
+  }
+
+  .dashed:hover {
+    transform: scale(1.05); /* Zoom in the outer div */
+}
+.dashed:hover .team-image {
+    transform: scale(0.9); /* Zoom out the image */
+}
+
+/* Result Page CSS */
+
+.image-gallery-container-main{
+  margin: 2% 7%;
+  display: flex;
+  justify-content: center;
+}
+
+.result-image{
+  width: 100%;
+  height: 100%;
+}
+
+.image-container{
+  overflow: hidden;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 250px;
+  width: 250px;
+  border: 5px solid #FBA834;
+  border-radius: 10px 10px 0px 0px;
+  position: relative;
+}
+
+
+.time{
+  margin-top: 0;
+  margin-bottom: 30px;
+  background-color: #EEEEEE;
+  font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #EE4266;
+    text-align: center;
+    width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.copy-icon {
+  color: #000;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+

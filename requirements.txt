@@ -1,0 +1,9 @@
+numpy
+pandas
+seaborn
+scikit-learn
+tensorflow
+opencv-python
+Flask
+ultralytics
+# -e .

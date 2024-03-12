@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accident Detection</title>
+    <!-- Bootstrap -->
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+    />
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+
+    <!-- FontAwesome link -->
+    <script
+      src="https://kit.fontawesome.com/7f5971d884.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-body-primary navbar-main sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+          <img
+            src="{{url_for('static', filename = '/assets/logo.png')}}"
+            alt="Logo"
+            width="80"
+            height="60"
+            class="d-inline-block align-text-top"
+          />
+        </a>
+        <a  href="/"> <h3 class="name">ACCIDETECT</h3></a>
+       
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <h6>
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </h6>
+            </li>
+            <li class="nav-item">
+              <h6><a class="nav-link" href="/about">About</a></h6>
+            </li>
+            <li class="nav-item">
+              <h6><a class="nav-link" href="/team">Team</a></h6>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Navbar End -->
+
+    <div class="container-service-main row">
+     
+      <div class="container-service col-lg-6">
+        <h4 class="accidetect-message">Extracting timestamped images from video footage, especially in scenarios involving accidents. </h4>
+        <!-- Uplaod form start -->
+        <form action="/result" method="post">
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              font-size: large;
+              margin-top: 50px;
+            "
+          >
+            <div class="drop-area" id="drop-area">
+              <input
+                onchange="checkFile()"
+                required
+                type="file"
+                name="video"
+                id="fileInput"
+              />
+            </div>
+          </div>
+          <div style="text-align: center">
+            <input
+              id="startButton"
+              class="upload-btn"
+              type="submit"
+              value="Upload"
+              
+            />
+          </div>
+        </form>
+
+        <!-- Upload form end -->
+      </div>
+      <div class="container-demo-video col-lg-6">
+        <iframe class="demo-video" width="100%" height="315" src="https://www.youtube.com/embed/wrfk86tbwWY?rel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+
+     <!-- How accidetect works start -->
+          
+
+     <div class="row working-cards-main-container" >
+      <h3 style="text-align: center; margin-bottom: 2%; font-family: 'Courier New', Courier, monospace; font-weight: bolder; color: #EE4266;background-color: #EEEEEE;">How AcciDetect Works ?</h3>
+
+    <div  class="card col-lg-4 card-div rotate-anticlockwise" style="width: 20rem;">
+      <img src="{{url_for('static', filename = '/assets/upload-image.jpg')}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"  style="text-align: center;">Upload Video</h5>
+        <p class="card-text"> Simply upload your video footage to AcciDetect's platform, where our advanced algorithms will start the analysis.</p>
+      </div>
+    </div>
+
+    <div class="card col-lg-4 card-div rotate-anticlockwise" style="width: 20rem;">
+      <img src="{{url_for('static', filename='/assets/detect-image.jpg')}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"  style="text-align: center;">Detect Accidents</h5>
+        <p class="card-text"> AcciDetect's AI algorithms will carefully analyze the video and promptly determine whether an accident is occurring within the footage..</p>
+      </div>
+    </div>
+
+    <div class="card col-lg-4 card-div rotate-anticlockwise" style="width: 20rem;">
+      <img src="{{url_for('static',filename = '/assets/timestamp-image.jpg')}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"  style="text-align: center;">Timestamp Provided</h5>
+        <p class="card-text">If an accident is detected, AcciDetect will provide a precise timestamp indicating when the accident occurred in the video, allowing for swift response and action.</p>
+      </div>
+    </div>
+
+     </div>
+
+     <div style="margin-top: 30px; padding: 20px; font-family: 'Courier New', Courier, monospace; font-weight: bolder; color: #EE4266;background-color: #EEEEEE;"></div>
+
+
+ 
+ <!-- Industries we server start -->
+ <div class="row Indusrtries-main-container">
+ 
+  <div class="col-lg-8 Industries-inner-container">
+    <img class="insurance-img" src="{{url_for('static',filename = '/assets/industries-we-serve.jpg')}}" alt="">
+    <div style="text-align: center;">
+      <h4 style="color: #00337C;">Industries We Serve</h4>
+    <hr>
+    <p><strong>Insurance industry </strong>AcciDetect can help insurance companies identify potentially fraudulent claims. By analyzing video footage, it can determine whether reported accidents actually occurred, helping to prevent false or exaggerated claims.</p>
+    </div>
+  </div>
+ </div>
+
+ <!-- Indusrtries we serve end -->
+ <h3 style="text-align: center; margin-bottom: 2%; font-family: 'Courier New', Courier, monospace; font-weight: bolder; color: #EE4266;background-color: #EEEEEE;">FAQ</h3>
+
+ <div class="accordion " id="accordionFAQ">
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+        <span class="me-2">What should I do if I witness an accident?</span> <i class="bi bi-caret-down"></i>
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFAQ">
+      <div class="accordion-body">
+        If you witness an accident, prioritize safety first. Call emergency services immediately and provide accurate details about the location and nature of the accident. Do not intervene unless it is safe to do so.
+       </div>
+    </div>
+  </div>
+
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <span class="me-2">How can I report an accident using the app?</span> <i class="bi bi-caret-down"></i>
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+      <div class="accordion-body">
+        To report an accident using the app, open the application and navigate to the "Report Accident" section. Follow the prompts to provide essential information such as location, type of accident, and any additional details that may assist responders.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
+        <span class="me-2">Will my personal information be kept confidential when reporting an accident?
+        </span> <i class="bi bi-caret-down"></i>
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+      <div class="accordion-body">
+        Yes, your personal information will be kept confidential when reporting an accident through the app. We prioritize user privacy and only share necessary details with emergency services and relevant authorities.
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
+        <span class="me-2">Can I upload photos or videos of the accident scene through the app?</span> <i class="bi bi-caret-down"></i>
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionFAQ">
+      <div class="accordion-body">
+        Yes, you can upload photos or videos of the accident scene through the app when reporting an accident. Visual documentation can provide valuable insights for responders and assist in the investigation process.
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+     <!-- Footer starts -->
+
+     <div class="footer">
+
+      <p style="text-align: center"> Copyright &copy; <script>
+          document.write(new Date().getFullYear())
+        </script> All Rights Reserved</p>
+  
+    </div>
+  
+  
+    <!-- Footer ends -->
+  
+
+    
+  </body>
+</html>
