@@ -22,6 +22,10 @@
    <!-- CSS file -->
    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
 
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
    <!-- FontAwesome link -->
    <script
      src="https://kit.fontawesome.com/7f5971d884.js"
@@ -73,34 +77,38 @@
     </nav>
 
     <!-- Navbar End -->
-      <h3 class="about-accidetect-heading">GD-10</h3>
+    <br>
+    <center>
+
+      <h3 class="about-accidetect-heading"><i> Meet the Team.</i></h3>
+    </center>
       
       <div class="row container-team-main">
          
         <div class="col-lg-3 team-image-container">
          <div class="dashed">
-          <img src="https://tse1.mm.bing.net/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&pid=Api&rs=1&c=1&qlt=95&w=77&h=115" class="team-image " alt="">
+          <img src="{{url_for('static', filename='assets/aditya.jpg')}}" class="team-image " alt="">
           <h4 class="team-member-name">Aditya Desity</h4>
          </div>
         </div>
          
         <div class="col-lg-3 team-image-container">
           <div class="dashed">
-           <img src="https://tse1.mm.bing.net/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&pid=Api&rs=1&c=1&qlt=95&w=77&h=115" class="team-image" alt="">
+           <img src="{{url_for('static', filename='assets/sarthak.jpg')}}" class="team-image" alt="">
            <h4 class="team-member-name">Sarthak Joshi</h4>
           </div>
          </div>
 
          <div class="col-lg-3 team-image-container">
           <div class="dashed">
-           <img src="https://tse1.mm.bing.net/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&pid=Api&rs=1&c=1&qlt=95&w=77&h=115" class="team-image" alt="">
+           <img src="{{url_for('static', filename='assets/sukhada.jpg')}}" class="team-image" alt="">
            <h4 class="team-member-name">Sukhada Chandawale</h4>
           </div>
          </div>
 
          <div class="col-lg-3 team-image-container">
           <div class="dashed"> 
-           <img src="https://tse1.mm.bing.net/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&pid=Api&rs=1&c=1&qlt=95&w=77&h=115" class="team-image" alt="">
+           <img src="{{url_for('static', filename='assets/abhishek.jpg')}}" class="team-image" alt="">
            <h4 class="team-member-name">Abhishek Bhadane</h4>
           </div>
          </div>
@@ -109,13 +117,16 @@
 
 
       <br>
-      <h3 class="about-accidetect-heading">Project Guide</h3>
+      <center>
+        <h3 class="about-accidetect-heading"><i> Under the Guidance of </i></h3>
+      </center>
+      
 
       <div class="row container-team-main">
          
         <div class="col-lg-3 team-image-container">
          <div class="dashed">
-          <img src="https://tse1.mm.bing.net/th?id=OIP.IGNf7GuQaCqz_RPq5wCkPgAAAA&pid=Api&rs=1&c=1&qlt=95&w=77&h=115" class="team-image" alt="">
+          <img src="{{url_for('static', filename='assets/mam.jpg')}}" class="team-image" alt="">
           <h4 class="team-member-name">Prof B. Mahalakshmi</h4>
          </div>
         </div>
