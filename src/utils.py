@@ -1,8 +1,15 @@
 import os
+import zipfile
+import smtplib
+from email.message import EmailMessage
+import os
 # static\images\results
-ALLOWED_EXTENSIONS = set(['.mp4', '.avi', '.mkv', '.mov', '.wmv', '.flv', '.webm'])
+ALLOWED_EXTENSIONS = set(['mp4', 'avi', 'mkv', 'mov', 'wmv', 'flv', 'webm'])
 
 def clear_directory(directory):
+    '''
+        Function to clear the current working directory.
+    '''
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         try:
@@ -16,8 +23,39 @@ def clear_directory(directory):
 
 
 def allowed_file(filename):
+    '''
+        Function to check whether provided file is a video or not.
+    '''
+    # print('.' in filename)
+    # print(filename.rsplit('.', 1)[1])
     return '.' in filename and filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
 
 
-# if __name__ == "__main__":
-#     clear_directory('static/results')   #success
+def compress_and_email(folder_path, to_email, from_email, password, subject):
+    '''
+        Function to compress the results and mail 
+    '''
+    # Compress the folder
+    with zipfile.ZipFile('static/Compressed_Results/compressed_folder.zip', 'w') as zipf:
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                zipf.write(os.path.join(root, file), os.path.relpath(os.path.join(root, file), folder_path))
+
+    # Email the compressed file
+    msg = EmailMessage()
+    msg['Subject'] = subject
+    msg['From'] = from_email
+    msg['To'] = to_email
+    msg.set_content('From the given video footage Accident frames and timestamps are extracted.Please find the compressed folder attached.')
+
+    with open('compressed_folder.zip', 'rb') as f:
+        file_data = f.read()
+        msg.add_attachment(file_data, maintype='application', subtype='zip', filename='compressed_folder.zip')
+
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
+        smtp.login(from_email, password)
+        smtp.send_message(msg)
+
+
+if __name__ == "__main__":
+    print(allowed_file('Demo1.mp4'))

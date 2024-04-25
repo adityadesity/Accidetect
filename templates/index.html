@@ -75,7 +75,15 @@
     </nav>
 
     <!-- Navbar End -->
-
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %} 
     <div class="container-service-main row">
      
       <div class="container-service col-lg-6">
@@ -98,6 +106,8 @@
                 name="video"
                 id="fileInput"
               />
+              <br>
+              <input type="email" placeholder="Enter Your Email" name = "email" required>
             </div>
           </div>
           <div style="text-align: center">

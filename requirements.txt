@@ -6,4 +6,5 @@ tensorflow
 opencv-python
 Flask
 ultralytics
+secure-smtplib
 # -e .

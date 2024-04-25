@@ -1,7 +1,9 @@
 from flask import Flask,render_template,url_for,request,flash,redirect
 from src import utils
 from src.pipeline.predict_pipeline import PredictionPipeline
+from src.exception import CustomException
 import os
+import sys
 from src.logger import logging
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'accidetect'
@@ -11,8 +13,10 @@ utils.clear_directory('static/results')
 logging.info("Cleared result directory")
 # Initiate prediction pipeline that includes model loading
 preds_obj = PredictionPipeline()
-
-
+from_email = "aditidagadkhair3011@gmail.com"
+password = "esahbdetgodyhzoz"
+subject = "Accidents and timestamps"
+folder_path = 'static/results'
 # Routes
 @app.route('/')
 def home():
@@ -23,11 +27,20 @@ def home():
 def result():
     if request.method == 'POST':
         video = request.form.get('video')
-        print(video)
-        result=preds_obj.predict(video_path=f'static/uploads/{video}')
-        
-        print(result)
-        return render_template('result.html',result = result)
+        email = request.form.get('email')
+        print(email)
+        if utils.allowed_file(video):
+            result=preds_obj.predict(video_path=f'static/uploads/{video}')
+            print(result)
+            try:
+                pass
+                # utils.compress_and_email(folder_path, email, from_email, password, subject)
+            except Exception as e:
+                flash('Provide a valid email id!','error')
+                raise CustomException(e,sys)
+            return render_template('result.html',result = result)
+        else:
+            flash('Only ''.mp4'', ''.avi'', ''.mkv'', ''.mov'', ''.wmv'', ''.flv'', ''.webm'' format Supported', 'error')
     return redirect('/')
 
 @app.route('/about')    
@@ -36,10 +49,14 @@ def about():
 @app.route('/team')
 def team():
     return render_template('team.html')
+# Test Route
 @app.route('/test')
 def test():
     preds_obj.predict('static/uploads/Demo.mp4')
     return "Test Success"
+
+
+
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
     utils.clear_directory('static/results')
