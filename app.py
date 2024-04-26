@@ -13,14 +13,16 @@ utils.clear_directory('static/results')
 logging.info("Cleared result directory")
 # Initiate prediction pipeline that includes model loading
 preds_obj = PredictionPipeline()
-from_email = "aditidagadkhair3011@gmail.com"
-password = "esahbdetgodyhzoz"
+from_email = 'teams.accidetect@gmail.com'
+password = 'clhatkrsuidwxnlg'
 subject = "Accidents and timestamps"
 folder_path = 'static/results'
+num_uses = 0
 # Routes
 @app.route('/')
 def home():
     utils.clear_directory('static/results')
+    utils.clear_directory('static/Compressed_Results')
     return render_template('index.html')
 # Testing route
 @app.route('/result',methods = ['GET','POST'])
@@ -33,14 +35,17 @@ def result():
             result=preds_obj.predict(video_path=f'static/uploads/{video}')
             print(result)
             try:
-                pass
-                # utils.compress_and_email(folder_path, email, from_email, password, subject)
+                utils.compress_and_email(folder_path, email, from_email, password, subject)
+                logging.info(f"Email sent to {email}")
+                
+                logging.info(f'No. of uses in this session : {num_uses}')
             except Exception as e:
                 flash('Provide a valid email id!','error')
+                logging.info("Invalid email id")
                 raise CustomException(e,sys)
             return render_template('result.html',result = result)
         else:
-            flash('Only ''.mp4'', ''.avi'', ''.mkv'', ''.mov'', ''.wmv'', ''.flv'', ''.webm'' format Supported', 'error')
+            flash('Supported Format - ''mp4'', ''avi'', ''mkv'', ''mov'', ''wmv'', ''flv'', ''webm'' ', 'error')
     return redirect('/')
 
 @app.route('/about')    
@@ -60,3 +65,4 @@ def test():
 if __name__ == "__main__":
     app.run(port=5000, debug=True)
     utils.clear_directory('static/results')
+    utils.clear_directory('static/Compressed_Results')

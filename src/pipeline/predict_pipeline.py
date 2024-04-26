@@ -49,9 +49,9 @@ class PredictionPipeline:
                                 timestamp = cap.get(cv2.CAP_PROP_POS_MSEC)
                                 timestamp_seconds = timestamp / 1000  # Convert to seconds  
                                 timestamp_seconds = round(timestamp_seconds,1)
-                                output_path = f'./static/results/accident_frame_{i}.jpg'
+                                output_path = f'./static/results/accident_frame_{timestamp_seconds}s.jpg'
                                 logging.info(f"Logging the accident timestamp -> {timestamp_seconds} s")
-                                output[f'accident_frame_{i}.jpg'] = timestamp_seconds
+                                output[f'accident_frame_{timestamp_seconds}s.jpg'] = timestamp_seconds
                                 cv2.imwrite(output_path, frame)
                     i = i+1
                     
