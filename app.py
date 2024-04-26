@@ -14,7 +14,7 @@ logging.info("Cleared result directory")
 # Initiate prediction pipeline that includes model loading
 preds_obj = PredictionPipeline()
 from_email = 'teams.accidetect@gmail.com'
-password = 'clhatkrsuidwxnlg'
+password = '*'
 subject = "Accidents and timestamps"
 folder_path = 'static/results'
 num_uses = 0
